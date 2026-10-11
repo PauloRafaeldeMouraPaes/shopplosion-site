@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Shopplosion Market Insights</title>
+<title>Shopplosion | Shopper Insights e Inteligência de Mercado</title>
 <meta name="description" content="Shopper insights, inteligência de mercado e gerenciamento por categorias para indústrias de bens de consumo. Método próprio que vai da pesquisa à gôndola.">
 <link rel="canonical" href="https://www.shopplosion.com/">
 <meta name="theme-color" content="#f50075">
@@ -16,6 +16,7 @@
 <meta property="og:image" content="https://www.shopplosion.com/assets/og-shopplosion.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Logotipo Shopplosion sobre o gradiente da marca">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shopplosion | Shopper Insights e Inteligência de Mercado">
@@ -29,6 +30,7 @@
   "url":"https://www.shopplosion.com/",
   "logo":"https://www.shopplosion.com/assets/shopplosion-logo.png",
   "email":"carinaviegas@shopplosion.com",
+  "telephone":"+55-11-93383-7878",
   "taxID":"49.356.117/0001-00",
   "founder":{"@type":"Person","name":"Carina Viegas","sameAs":["https://orcid.org/0000-0002-8134-6917"]},
   "address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"},
@@ -56,6 +58,8 @@ img{max-width:100%}
 h1,h2,h3{text-wrap:balance}
 p{text-wrap:pretty}
 .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.challenges:focus-visible,.cases:focus-visible{outline-offset:6px}
 .skip{position:absolute;left:-999px;top:8px;z-index:100;background:#fff;color:var(--ink);padding:10px 14px;border-radius:8px}
 .skip:focus{left:12px}
 *:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:4px}
@@ -110,7 +114,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:va
 .proof small{display:block;margin-top:6px;font-size:14px;color:var(--ink2);line-height:1.4}
 
 /* Seções */
-section{padding-block:88px;border-bottom:1px solid var(--line)}
+main > section{padding-block:88px;border-bottom:1px solid var(--line)}
 .sec-head{display:grid;gap:12px;margin-bottom:40px;max-width:780px}
 .sec-head h2{font-size:clamp(30px,4vw,46px);line-height:1.04;letter-spacing:-.04em;margin:0;font-weight:800}
 .sec-head p{margin:6px 0 0;color:var(--ink2);font-size:17px;max-width:62ch}
@@ -177,7 +181,7 @@ section{padding-block:88px;border-bottom:1px solid var(--line)}
 .about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start}
 .founder{border:1px solid var(--line);border-radius:var(--radius);padding:32px;background:var(--app)}
 .founder-id{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-.monogram{width:64px;height:64px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px;letter-spacing:-.02em;flex:none}
+.monogram{width:64px;height:64px;border-radius:50%;background:var(--brand-ink);box-shadow:0 0 0 3px var(--surface),0 0 0 5px #ff9d20;display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px;letter-spacing:-.02em;flex:none}
 .founder-id h3{margin:0;font-size:24px;letter-spacing:-.02em}
 .founder-id small{display:block;color:var(--ink2);font-size:14px}
 .founder > p{color:var(--ink2);margin:0 0 20px}
@@ -211,6 +215,7 @@ section{padding-block:88px;border-bottom:1px solid var(--line)}
 .contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .contact-card{min-height:132px;border:1px solid var(--line);border-radius:14px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 12px;gap:6px;min-width:0;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .contact-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(20,20,26,.10);border-color:#f2b3ca}
+.contact-card .ct{display:grid;gap:4px;justify-items:center;min-width:0}
 .contact-card strong{font-size:16px;margin-top:4px}
 .contact-card small{color:var(--ink2);font-size:13px;overflow-wrap:anywhere}
 .ci{width:52px;height:52px;display:grid;place-items:center}
@@ -269,7 +274,7 @@ section{padding-block:88px;border-bottom:1px solid var(--line)}
   header.menu-open .menu-toggle span:nth-child(2){opacity:0}
   header.menu-open .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .wrap.nav{position:relative}
-  section{padding-block:64px}
+  main > section{padding-block:64px}
   .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
   .proof div{padding:18px 14px 20px}
   .proof div:nth-child(odd){border-left:0;padding-left:0}
@@ -287,6 +292,13 @@ section{padding-block:88px;border-bottom:1px solid var(--line)}
   .founder{padding:24px}
   .footer-grid{grid-template-columns:1fr;gap:28px}
   .footer-bottom{flex-direction:column}
+}
+@media(max-width:480px){
+  .contact-grid{grid-template-columns:1fr;gap:10px}
+  .contact-card{min-height:76px;flex-direction:row;justify-content:flex-start;text-align:left;gap:14px;padding:12px 16px}
+  .contact-card strong{margin-top:0;display:block}
+  .contact-card .ct{gap:2px;justify-items:start}
+  .ci{width:44px;height:44px;flex:none}.ci svg{width:38px;height:38px}.ci.email svg{width:22px;height:22px}
 }
 @media(max-width:380px){
   :root{--gutter:16px}
@@ -328,7 +340,7 @@ header .brandImage{height:58px!important}
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#" aria-label="Shopplosion Market Insights, início"><img class="brandImage" src="assets/shopplosion-logo.png" alt="Shopplosion" width="902" height="267"></a>
+    <a class="brand" href="#" aria-label="Shopplosion Market Insights, início"><img class="brandImage" src="assets/shopplosion-logo.png" alt="Shopplosion" width="902" height="267" fetchpriority="high"></a>
     <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
     <nav id="site-menu" aria-label="Principal">
       <a href="#metodo">Método</a>
@@ -359,7 +371,7 @@ header .brandImage{height:58px!important}
         <div class="pulse-tags"><span>Shopper</span><span>Dados</span><span>Gôndola</span><span>Mercado</span></div>
       </div>
     </div>
-    <div class="proof" aria-label="Experiência em números">
+    <div class="proof" role="group" aria-label="Experiência em números">
       <div><b>+12 anos</b><small>de experiência em pesquisa de mercado e shopper</small></div>
       <div><b>3 continentes</b><small>de atuação em pesquisa, projetos e palestras</small></div>
       <div><b>9 estudos</b><small>realizados ou em curso no último ano</small></div>
@@ -376,7 +388,7 @@ header .brandImage{height:58px!important}
       <p>Cada projeto começa por uma decisão concreta da indústria. Estes são os tipos de pergunta que conduzem os estudos da Shopplosion.</p>
     </div>
     <p class="swipe-hint" aria-hidden="true">Deslize para ver mais →</p>
-    <div class="challenges">
+    <section class="challenges" aria-label="Desafios de negócio" tabindex="0">
       <article class="challenge">
         <q>A categoria está perdendo espaço. É queda de consumo ou mudança na forma de decidir?</q>
         <p>Missões, ocasiões, substituições e o papel de saudabilidade, indulgência e conveniência na escolha.</p>
@@ -407,7 +419,7 @@ header .brandImage{height:58px!important}
         <p>Hábitos de consumo, priorização de categorias e portfólio, canais, preço e conversa com key accounts.</p>
         <div class="label">Market entry</div>
       </article>
-    </div>
+    </section>
   </div>
 </section>
 
@@ -464,7 +476,7 @@ header .brandImage{height:58px!important}
       <p>Uma amostra dos projetos realizados ou em curso nos últimos doze meses, do desk research até o ponto de venda.</p>
     </div>
     <p class="swipe-hint" aria-hidden="true">Deslize para ver os 9 estudos →</p>
-    <div class="cases">
+    <section class="cases" aria-label="Estudos recentes" tabindex="0">
       <article class="case">
         <div class="case-top"><span class="chip">Alimentos · Temperos e ervas</span></div>
         <div class="front">Shopper journey e árvore de decisão</div>
@@ -519,7 +531,7 @@ header .brandImage{height:58px!important}
         <h3>Barreiras e motivações entre segmentos</h3>
         <p>Grano duro versus mainstream, árvore de decisão e insights para construir a comunicação em gôndola para um cliente global.</p>
       </article>
-    </div>
+    </section>
     <p class="cases-note">Clientes identificados por setor e categoria. Os nomes das empresas são apresentados em reuniões comerciais, conforme autorização de cada cliente.</p>
   </div>
 </section>
@@ -604,7 +616,7 @@ header .brandImage{height:58px!important}
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Treinamentos e palestras no Brasil, Portugal, Noruega e Espanha sobre marketing sensorial, jornada de consumo e tecnologia em pesquisa no PDV.</span></li>
         </ul>
         <div class="founder-links">
-          <a href="https://orcid.org/0000-0002-8134-6917" target="_blank" rel="noopener noreferrer">Perfil ORCID</a>
+          <a href="https://orcid.org/0000-0002-8134-6917" target="_blank" rel="noopener noreferrer">Perfil ORCID<span class="sr-only"> (abre em nova aba)</span></a>
         </div>
       </article>
       <div class="side">
@@ -646,20 +658,20 @@ header .brandImage{height:58px!important}
     <div class="contact-grid">
       <a class="contact-card" href="mailto:carinaviegas@shopplosion.com?subject=Contato%20pelo%20site%20Shopplosion">
         <span class="ci email" aria-hidden="true"><svg><use href="#i-mail"/></svg></span>
-        <strong>E-mail</strong><small>carinaviegas@shopplosion.com</small>
+        <span class="ct"><strong>E-mail</strong><small>carinaviegas@shopplosion.com</small></span>
       </a>
       <a class="contact-card" href="https://wa.me/5511933837878?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Shopplosion%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">
         <span class="ci whatsapp" aria-hidden="true"><svg><use href="#i-wa"/></svg></span>
-        <strong>WhatsApp</strong><small>+55 11 93383-7878</small>
-      </a>
+        <span class="ct"><strong>WhatsApp</strong><small>+55 11 93383-7878</small></span>
+      <span class="sr-only"> (abre em nova aba)</span></a>
       <a class="contact-card" href="https://www.linkedin.com/company/shopplosion/home/" target="_blank" rel="noopener noreferrer">
         <span class="ci linkedin" aria-hidden="true"><svg><use href="#i-li"/></svg></span>
-        <strong>LinkedIn</strong><small>Seguir a Shopplosion</small>
-      </a>
+        <span class="ct"><strong>LinkedIn</strong><small>Seguir a Shopplosion</small></span>
+      <span class="sr-only"> (abre em nova aba)</span></a>
       <a class="contact-card" href="https://www.instagram.com/shopplosion.mi/" target="_blank" rel="noopener noreferrer">
         <span class="ci instagram" aria-hidden="true"><svg><use href="#i-ig"/></svg></span>
-        <strong>Instagram</strong><small>@shopplosion.mi</small>
-      </a>
+        <span class="ct"><strong>Instagram</strong><small>@shopplosion.mi</small></span>
+      <span class="sr-only"> (abre em nova aba)</span></a>
     </div>
   </div>
 </section>
@@ -669,15 +681,15 @@ header .brandImage{height:58px!important}
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand-block">
-      <img class="footer-logo" src="assets/shopplosion-logo.png" alt="Shopplosion" width="902" height="267">
+      <img class="footer-logo" src="assets/shopplosion-logo.png" alt="Shopplosion" width="902" height="267" loading="lazy">
       <p>Shopper insights e inteligência de mercado para decisões de categoria, sortimento e execução.</p>
     </div>
     <div class="footer-column"><strong>Navegação</strong><a href="#metodo">Método</a><a href="#experiencia">Experiência</a><a href="#solucoes">Soluções</a><a href="#quem-somos">Quem somos</a></div>
     <div class="footer-column"><strong>Siga a Shopplosion</strong>
       <div class="footer-socials">
-        <a href="https://www.linkedin.com/company/shopplosion/home/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="li"><svg aria-hidden="true"><use href="#i-li"/></svg></a>
-        <a href="https://www.instagram.com/shopplosion.mi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="ig"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
-        <a href="https://wa.me/5511933837878" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="wa"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+        <a href="https://www.linkedin.com/company/shopplosion/home/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Shopplosion (abre em nova aba)" class="li"><svg aria-hidden="true"><use href="#i-li"/></svg></a>
+        <a href="https://www.instagram.com/shopplosion.mi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Shopplosion (abre em nova aba)" class="ig"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="https://wa.me/5511933837878" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Shopplosion (abre em nova aba)" class="wa"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
       </div>
     </div>
     <div class="footer-column footer-contact"><strong>Contato direto</strong><a href="mailto:carinaviegas@shopplosion.com"><span class="footer-mail-icon"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span>carinaviegas@shopplosion.com</span></a></div>
