@@ -362,6 +362,52 @@ main>section{padding-block:96px;border-bottom:1px solid var(--line)}
   .footer-bottom{flex-direction:column}
 }
 .swipe{display:none;margin:-28px 0 14px;font-size:0.8438rem;color:var(--ink3)}
+
+/* Imersivo: vídeos de ambientação (motion design próprio, sem texto) */
+.hero{position:relative;isolation:isolate;background:#090d1c;color:#fff;border-bottom:0}
+.hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#090d1c url(assets/media/corredor.jpg) 62% 50%/cover no-repeat}
+.hero-media video,.band-media video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-media video{object-position:62% 50%}
+.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,13,28,.94) 0%,rgba(9,13,28,.82) 34%,rgba(9,13,28,.35) 64%,rgba(9,13,28,.12) 100%),linear-gradient(0deg,rgba(9,13,28,.96) 0%,rgba(9,13,28,0) 38%)}
+.hero-grid{grid-template-columns:minmax(0,1fr);min-height:min(78svh,760px);align-content:center;padding-block:96px 72px}
+.hero h1{color:#fff;font-size:clamp(2.75rem,6.4vw,5.5rem);max-width:13ch}
+.hero-lead{color:#d9e0ef;font-size:clamp(1.125rem,1.6vw,1.3125rem);max-width:40ch}
+.hero .btn-ghost{color:#fff}
+.hero .btn-ghost:hover{color:#ffc400}
+.hero .figures{border-top-color:rgba(255,255,255,.18)}
+.hero .figures div+div{border-left-color:rgba(255,255,255,.18)}
+.hero .figures dd{color:#fff}
+.hero .figures dt{color:#c5cde0}
+.sec-head--split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.sec-head--split .tree{animation:none}
+.method-stage{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:64px;align-items:start}
+.method-media{position:sticky;top:112px;aspect-ratio:16/10;border-radius:var(--r-card);overflow:hidden;background:#090d1c;box-shadow:0 24px 60px rgba(11,23,48,.28)}
+.method-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
+.method-media video.is-on{opacity:1}
+.method-stage .steps{grid-template-columns:1fr;gap:0}
+.method-stage .steps:before{display:block;top:22px;bottom:22px;left:21px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,#ffc400,#ff4b58 45%,#f50075 75%,var(--navy))}
+.method-stage .step{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:24px;padding:0 0 0;min-height:min(46vh,420px);align-content:start}
+.method-stage .step-n{grid-row:1/span 3;margin:0;position:relative;left:auto;top:auto}
+.method-stage .step h3{transition:color .3s ease}
+.method-stage .step.is-active h3{color:var(--accent)}
+.band{position:relative;isolation:isolate;min-height:min(72svh,680px);display:grid;align-items:end;background:#090d1c;color:#fff;border-bottom:0}
+.band-media{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#090d1c url(assets/media/gondola.jpg) center/cover no-repeat}
+.band-media:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,13,28,.92) 0%,rgba(9,13,28,.35) 45%,rgba(9,13,28,.1) 100%)}
+.band>.wrap{width:100%;padding-bottom:clamp(48px,8vh,88px)}
+.band-title{font-size:clamp(2.25rem,5.6vw,4.75rem);line-height:1.02;letter-spacing:-.045em;font-weight:680;color:#fff;max-width:14ch;padding-block:0 8px}
+@media (max-width:1020px){
+  .sec-head--split{grid-template-columns:minmax(0,1fr);gap:32px}
+  .method-stage{grid-template-columns:minmax(0,1fr);gap:28px}
+  .method-media{top:84px;z-index:2;aspect-ratio:16/9}
+  .method-stage .step{min-height:0;padding:28px 0}
+}
+@media (max-width:767px){
+  .hero-media:after{background:linear-gradient(0deg,rgba(9,13,28,.96) 0%,rgba(9,13,28,.8) 55%,rgba(9,13,28,.55) 100%)}
+  .hero-grid{min-height:0;padding-block:72px 48px}
+  .method-media{top:76px}
+  .band{min-height:58svh}
+}
+@media (prefers-reduced-motion:reduce){.method-media video{transition:none}}
 </style>
 <style id="shopplosion-logo-stable">
 .brandImage,.footer-logo{
@@ -414,6 +460,7 @@ header .brandImage{height:58px!important}
 <main id="conteudo">
 
 <section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media" aria-hidden="true"><video class="ambient" muted playsinline loop preload="none" poster="assets/media/corredor.jpg" data-src="assets/media/corredor.mp4"></video></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -424,17 +471,6 @@ header .brandImage{height:58px!important}
           <a class="btn btn-ghost" href="#metodo">Ver o método <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
-      <figure class="tree" aria-labelledby="tree-title">
-        <div class="tree-head"><b id="tree-title">Árvore de decisão do shopper</b><span>exemplo</span></div>
-        <ol>
-          <li><span class="lvl">Ocasião</span><span class="opts"><span class="opt on">Café da manhã</span><span class="opt">Lanche</span><span class="opt">Festa</span></span></li>
-          <li><span class="lvl">Categoria</span><span class="opts"><span class="opt">Bolo</span><span class="opt on">Pão de forma</span><span class="opt">Torrada</span></span></li>
-          <li><span class="lvl">Benefício</span><span class="opts"><span class="opt on">Integral</span><span class="opt">Tradicional</span><span class="opt">Sem glúten</span></span></li>
-          <li><span class="lvl">Marca</span><span class="opts"><span class="opt on">Preferida</span><span class="opt">Alternativa</span></span></li>
-          <li><span class="lvl">Preço</span><span class="opts"><span class="opt">Promoção</span><span class="opt on">Regular</span></span></li>
-        </ol>
-        <figcaption>Ilustração do tipo de entrega que orienta layout, exposição e sortimento. Não reproduz dados de cliente.</figcaption>
-      </figure>
     </div>
     <h2 class="sr-only">Experiência em números</h2>
     <dl class="figures">
@@ -448,9 +484,22 @@ header .brandImage{height:58px!important}
 
 <section id="desafios" aria-labelledby="desafios-title">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 class="sec-title" id="desafios-title">Perguntas de negócio que a pesquisa precisa responder.</h2>
-      <p class="sec-lead">Cada projeto começa por uma decisão concreta da indústria.</p>
+    <div class="sec-head sec-head--split">
+      <div>
+        <h2 class="sec-title" id="desafios-title">Perguntas de negócio que a pesquisa precisa responder.</h2>
+        <p class="sec-lead">Cada projeto começa por uma decisão concreta da indústria.</p>
+      </div>
+      <figure class="tree" aria-labelledby="tree-title">
+        <div class="tree-head"><b id="tree-title">Árvore de decisão do shopper</b><span>exemplo</span></div>
+        <ol>
+          <li><span class="lvl">Ocasião</span><span class="opts"><span class="opt on">Café da manhã</span><span class="opt">Lanche</span><span class="opt">Festa</span></span></li>
+          <li><span class="lvl">Categoria</span><span class="opts"><span class="opt">Bolo</span><span class="opt on">Pão de forma</span><span class="opt">Torrada</span></span></li>
+          <li><span class="lvl">Benefício</span><span class="opts"><span class="opt on">Integral</span><span class="opt">Tradicional</span><span class="opt">Sem glúten</span></span></li>
+          <li><span class="lvl">Marca</span><span class="opts"><span class="opt on">Preferida</span><span class="opt">Alternativa</span></span></li>
+          <li><span class="lvl">Preço</span><span class="opts"><span class="opt">Promoção</span><span class="opt on">Regular</span></span></li>
+        </ol>
+        <figcaption>Ilustração do tipo de entrega que orienta layout, exposição e sortimento. Não reproduz dados de cliente.</figcaption>
+      </figure>
     </div>
     <ul class="questions">
       <li><span class="topic">Jornada de compra</span><h3>A categoria está perdendo espaço. É queda de consumo ou mudança na forma de decidir?</h3><p>Missões, ocasiões, substituições e o papel de saudabilidade, indulgência e conveniência na escolha.</p></li>
@@ -470,12 +519,20 @@ header .brandImage{height:58px!important}
       <h2 class="sec-title" id="metodo-title">Da descoberta à validação, em quatro etapas.</h2>
       <p class="sec-lead">Metodologia autoral da Shopplosion. Cada etapa responde a uma pergunta e alimenta a seguinte.</p>
     </div>
+    <div class="method-stage">
+    <div class="method-media" aria-hidden="true">
+      <video class="ambient is-on" muted playsinline loop preload="none" poster="assets/media/explorar.jpg" data-src="assets/media/explorar.mp4" data-step="0"></video>
+      <video class="ambient" muted playsinline loop preload="none" poster="assets/media/dimensionar.jpg" data-src="assets/media/dimensionar.mp4" data-step="1"></video>
+      <video class="ambient" muted playsinline loop preload="none" poster="assets/media/validar.jpg" data-src="assets/media/validar.mp4" data-step="2"></video>
+      <video class="ambient" muted playsinline loop preload="none" poster="assets/media/construir.jpg" data-src="assets/media/construir.mp4" data-step="3"></video>
+    </div>
     <ol class="steps">
       <li class="step"><div class="step-n" aria-hidden="true">01</div><h3>Explorar</h3><div class="what">Entrevistas em profundidade</div><p>Motivações, crenças e o contexto por trás das escolhas, na linguagem do próprio shopper.</p></li>
       <li class="step"><div class="step-n" aria-hidden="true">02</div><h3>Dimensionar</h3><div class="what">Quantitativo online</div><p>Mapa da jornada, drivers, barreiras e árvore de decisão com amostra robusta.</p></li>
       <li class="step"><div class="step-n" aria-hidden="true">03</div><h3>Validar</h3><div class="what">Acompanhamento de compra</div><p>O próprio shopper grava a ida à loja e enxergamos busca, hesitação e decisão na gôndola.</p></li>
       <li class="step"><div class="step-n" aria-hidden="true">04</div><h3>Construir</h3><div class="what">Shopper Day</div><p>Manhã para entender os achados com o time do cliente, tarde para priorizar ações.</p></li>
     </ol>
+    </div>
     <p class="synthesis">Cada etapa cumpre um papel: o qualitativo revela o que está mudando, o quantitativo mostra a dimensão e o acompanhamento de compra confirma como isso acontece na vida real.</p>
   </div>
 </section>
@@ -500,6 +557,11 @@ header .brandImage{height:58px!important}
     </section>
     <p class="note">Clientes identificados por categoria. Os nomes das empresas são apresentados em reuniões comerciais, conforme autorização de cada cliente.</p>
   </div>
+</section>
+
+<section class="band" aria-labelledby="band-title">
+  <div class="band-media" aria-hidden="true"><video class="ambient" muted playsinline loop preload="none" poster="assets/media/gondola.jpg" data-src="assets/media/gondola.mp4"></video></div>
+  <div class="wrap"><h2 class="band-title" id="band-title">Da pesquisa à gôndola.</h2></div>
 </section>
 
 <section id="solucoes" aria-labelledby="sol-title">
@@ -633,6 +695,27 @@ header .brandImage{height:58px!important}
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&header.classList.contains('menu-open'))setOpen(false,true)});
   document.addEventListener('click',function(e){if(!header.contains(e.target))setOpen(false)});
+})();
+(function(){
+  var vids=[].slice.call(document.querySelectorAll('video.ambient'));
+  if(!vids.length)return;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var save=navigator.connection&&navigator.connection.saveData;
+  function canPlay(){return !rm.matches&&!save}
+  function load(v){if(v.getAttribute('src'))return;v.setAttribute('src',v.getAttribute('data-src'))}
+  function tryPlay(v){if(!canPlay())return;load(v);var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  var visible=new Set();
+  function wanted(v){return visible.has(v)&&(!v.hasAttribute('data-step')||v.classList.contains('is-on'))}
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)visible.add(e.target);else visible.delete(e.target);if(wanted(e.target))tryPlay(e.target);else e.target.pause()})},{rootMargin:'120px 0px'}):null;
+  vids.forEach(function(v){if(io)io.observe(v)});
+  rm.addEventListener&&rm.addEventListener('change',function(){vids.forEach(function(v){if(rm.matches)v.pause();else if(wanted(v))tryPlay(v)})});
+  var steps=[].slice.call(document.querySelectorAll('.method-stage .step'));
+  var stepVids=vids.filter(function(v){return v.hasAttribute('data-step')});
+  function activate(i){steps.forEach(function(s,k){s.classList.toggle('is-active',k===i)});stepVids.forEach(function(v){var on=+v.getAttribute('data-step')===i;v.classList.toggle('is-on',on);if(on&&visible.has(v))tryPlay(v);else v.pause()})}
+  if(steps.length&&'IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)activate(steps.indexOf(e.target))})},{rootMargin:'-40% 0px -50% 0px'});
+    steps.forEach(function(s){so.observe(s)});activate(0);
+  }
 })();
 (function(){
   var links=document.querySelectorAll('#site-menu a[href^="#"]:not(.nav-cta)');
