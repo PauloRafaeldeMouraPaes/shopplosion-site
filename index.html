@@ -104,9 +104,11 @@ h3{letter-spacing:-.015em}
 @media (prefers-contrast:more) and (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){--ink2:#e0dce8;--ink3:#c9c3d5;--line:#50566b;--line-strong:#747b93}
 }
-@media (prefers-reduced-transparency:reduce){
+@media (prefers-reduced-transparency:reduce) and (min-width:768px){
   #site-menu a{background:#0b1730}
   #site-menu a:hover{background:#15284a}
+}
+@media (prefers-reduced-transparency:reduce){
   .footer-socials a{background:#202c43}
   .footer-socials a:hover{background:#35425a}
 }
