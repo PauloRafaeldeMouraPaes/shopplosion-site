@@ -88,16 +88,32 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (pointer:fine){html{overscroll-behavior:none}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden;font-feature-settings:"ss01"}
-/* Apple Design: refinamento óptico e contraste respeitando as preferências do sistema */
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:100%;line-height:1.6;overflow-x:hidden;font-feature-settings:"ss01"}
+/* Apple Design: tipografia adaptável, preferências de acessibilidade e feedback previsível */
 html{font-optical-sizing:auto;text-rendering:optimizeLegibility}
+h1{letter-spacing:-.04em}
+h2{letter-spacing:-.03em}
+h3{letter-spacing:-.015em}
 @media (prefers-contrast:more){
   :root{--ink2:#3f394a;--ink3:#514a5c;--line:#c9c1d2;--line-strong:#9d93aa}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink2:#e0dce8;--ink3:#c9c3d5;--line:#50566b;--line-strong:#747b93}}
   :root[data-theme="dark"]{--ink2:#e0dce8;--ink3:#c9c3d5;--line:#50566b;--line-strong:#747b93}
   :focus-visible{outline-width:4px;outline-offset:4px}
   #site-menu a{outline-offset:3px}
-  .btn,.channel,.case,.tree{border-color:var(--line-strong)}
+  .btn,.channel,.tree{border-color:var(--line-strong)}
+}
+@media (prefers-contrast:more) and (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--ink2:#e0dce8;--ink3:#c9c3d5;--line:#50566b;--line-strong:#747b93}
+}
+@media (prefers-reduced-transparency:reduce){
+  #site-menu a{background:#0b1730}
+  #site-menu a:hover{background:#15284a}
+  .footer-socials a{background:#202c43}
+  .footer-socials a:hover{background:#35425a}
+}
+@media (forced-colors:active){
+  :focus-visible{outline:2px solid Highlight}
+  .btn,.channel,.tree,.case{border:1px solid ButtonText}
+  #site-menu a{forced-color-adjust:auto}
 }
 a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:rgba(200,24,95,.15)}
 a,button{touch-action:manipulation}
@@ -285,7 +301,7 @@ main>section{padding-block:96px;border-bottom:1px solid var(--line)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.18);margin-top:38px;padding-top:18px;display:flex;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;color:var(--navy-ink2);font-size:13px}
 .footer-bottom a{color:var(--navy-ink2);transition:color .2s ease}.footer-bottom a:hover{color:#fff}
 
-@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important} .case:hover,.channel:hover,.btn:active,.channel:active{transform:none!important}}
 
 /* Responsivo: cada grade declara sua versão abaixo de 768px */
 @media (max-width:1020px){
